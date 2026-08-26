@@ -59,7 +59,7 @@ export function explainTelemetryConsent(
   if (config?.enabled === true) return { enabled: true, source: 'config' };
   if (config?.enabled === false) return { enabled: false, source: 'config' };
 
-  return { enabled: true, source: 'default' };
+  return { enabled: false, source: 'default' };
 }
 
 /**
