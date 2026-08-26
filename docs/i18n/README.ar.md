@@ -418,11 +418,6 @@ Claude-Mem مرخّص بموجب رخصة Apache 2.0.
 
 ---
 
-### ماذا عن CMEM؟
-
-CMEM هو رمز (token) أنشأه طرف ثالث، لكنه معتمد رسمياً من قِبل مبتكر Claude-Mem (Alex Newman، @thedotmack). يعمل الرمز كحافز مجتمعي للنمو ووسيلة لإيصال CMEM إلى المطورين والعاملين في مجال المعرفة الأكثر حاجة إليه.
-
-عنوان العقد الرسمي على BASE (BASE CA): 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3
 
 </section>
 

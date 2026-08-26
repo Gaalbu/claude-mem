@@ -423,9 +423,3 @@ Claude-Mem מופץ תחת רישיון Apache License 2.0.
 **נבנה עם Claude Agent SDK** | **פועל עם Claude Code** | **נוצר עם TypeScript**
 
 ---
-
-### מה לגבי CMEM?
-
-CMEM הוא טוקן שנוצר על ידי צד שלישי, אך מקבל תמיכה רשמית מיוצר Claude-Mem (Alex Newman, @thedotmack). הטוקן משמש כזרז קהילתי לצמיחה וככלי להנגשת CMEM למפתחים ולעובדי ידע הזקוקים לו ביותר.
-
-כתובת חוזה רשמית ברשת BASE: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

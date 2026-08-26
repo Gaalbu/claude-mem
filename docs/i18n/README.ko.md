@@ -423,9 +423,3 @@ Claude-Mem은 Apache License 2.0에 따라 라이선스가 부여됩니다.
 **Claude Agent SDK로 구축** | **Claude Code 기반** | **TypeScript로 제작**
 
 ---
-
-### CMEM이란 무엇인가요?
-
-CMEM은 제3자가 만든 토큰이지만 Claude-Mem의 제작자(Alex Newman, @thedotmack)가 공식적으로 받아들인 토큰입니다. 이 토큰은 성장을 위한 커뮤니티 촉매제이자 CMEM을 가장 필요로 하는 개발자와 지식 노동자들에게 전달하는 수단 역할을 합니다.
-
-공식 BASE CA: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

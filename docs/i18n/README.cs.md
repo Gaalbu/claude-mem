@@ -423,9 +423,3 @@ mezi open source a komerčním využitím.
 **Vytvořeno pomocí Claude Agent SDK** | **Funguje s Claude Code** | **Vyrobeno s TypeScript**
 
 ---
-
-### Co je to CMEM?
-
-CMEM je token vytvořený třetí stranou, ale oficiálně přijatý tvůrcem Claude-Mem (Alex Newman, @thedotmack). Token funguje jako komunitní katalyzátor růstu a prostředek, jak přiblížit CMEM vývojářům a znalostním pracovníkům, kteří ho nejvíce potřebují.
-
-Oficiální BASE CA: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

@@ -423,9 +423,3 @@ grensen mellom åpen kildekode og kommersiell bruk.
 **Bygget med Claude Agent SDK** | **Fungerer med Claude Code** | **Laget med TypeScript**
 
 ---
-
-### Hva Med CMEM?
-
-CMEM er et token opprettet av en tredjepart, men offisielt omfavnet av skaperen av Claude-Mem (Alex Newman, @thedotmack). Tokenet fungerer som en katalysator for fellesskapets vekst og et middel for å bringe CMEM til utviklerne og kunnskapsarbeiderne som trenger det mest.
-
-Offisiell BASE CA: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

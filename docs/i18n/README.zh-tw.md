@@ -420,9 +420,3 @@ Claude-Mem 採用 Apache License 2.0 授權。
 **使用 Claude Agent SDK 建置** | **由 Claude Code 驅動** | **以 TypeScript 開發**
 
 ---
-
-### CMEM 是什麼？
-
-CMEM 是由第三方創建的代幣，但獲得 Claude-Mem 創作者（Alex Newman，@thedotmack）的正式支持。該代幣作為社群成長的催化劑，也是將 CMEM 帶給最需要它的開發者與知識工作者的媒介。
-
-官方 BASE 合約地址：0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

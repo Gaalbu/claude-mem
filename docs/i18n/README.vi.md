@@ -423,9 +423,3 @@ mở/thương mại.
 **Được Xây Dựng với Claude Agent SDK** | **Hoạt Động cùng Claude Code** | **Được Tạo với TypeScript**
 
 ---
-
-### Còn CMEM Thì Sao?
-
-CMEM là một token được tạo ra bởi bên thứ ba nhưng được đón nhận chính thức bởi người sáng tạo ra Claude-Mem (Alex Newman, @thedotmack). Token này đóng vai trò là chất xúc tác cộng đồng cho sự phát triển và là phương tiện đưa CMEM đến với các nhà phát triển và người lao động tri thức cần nó nhất.
-
-Official BASE CA: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

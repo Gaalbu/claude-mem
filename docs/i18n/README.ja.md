@@ -421,9 +421,3 @@ Claude-Memは Apache License 2.0 の下でライセンスされています。
 **Claude Agent SDKで構築** | **Claude Codeで動作** | **TypeScriptで作成**
 
 ---
-
-### CMEMについて
-
-CMEMは第三者によって作成されたトークンですが、Claude-Memの作成者(Alex Newman、@thedotmack)によって公式に採用されています。このトークンは、成長のためのコミュニティ触媒として、また、CMEMを最も必要としている開発者やナレッジワーカーに届けるための手段として機能します。
-
-公式BASE CA: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

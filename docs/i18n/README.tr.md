@@ -423,9 +423,3 @@ açık/ticari sınır için [docs/license.md](docs/license.md) ve
 **Claude Agent SDK ile geliştirilmiştir** | **Claude Code ile çalışır** | **TypeScript ile yapılmıştır**
 
 ---
-
-### CMEM Ne Demek?
-
-CMEM, 3. bir taraf tarafından oluşturulan ancak Claude-Mem'in yaratıcısı (Alex Newman, @thedotmack) tarafından resmi olarak benimsenen bir token'dır. Bu token, büyüme için bir topluluk katalizörü ve CMEM'i en çok ihtiyaç duyan geliştiricilere ve bilgi çalışanlarına ulaştırmak için bir araç olarak işlev görür.
-
-Resmi BASE CA: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

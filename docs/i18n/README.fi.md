@@ -423,9 +423,3 @@ avoimen/kaupallisen rajan osalta.
 **Rakennettu Claude Agent SDK:lla** | **Toimii Claude Coden kanssa** | **Tehty TypeScriptillä**
 
 ---
-
-### Entä CMEM?
-
-CMEM on kolmannen osapuolen luoma token, jonka Claude-Memin luoja (Alex Newman, @thedotmack) on virallisesti hyväksynyt. Token toimii yhteisön kasvun katalysaattorina ja välineenä, jolla CMEM tuodaan niiden kehittäjien ja tietotyöläisten saataville, jotka sitä eniten tarvitsevat.
-
-Virallinen BASE CA: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

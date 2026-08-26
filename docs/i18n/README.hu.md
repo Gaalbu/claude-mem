@@ -423,9 +423,3 @@ nyílt/kereskedelmi határvonalért.
 **Claude Agent SDK-val építve** | **Claude Code-dal működik** | **TypeScript-tel készítve**
 
 ---
-
-### Mi a helyzet a CMEM-mel?
-
-A CMEM egy harmadik fél által létrehozott token, amelyet a Claude-Mem alkotója (Alex Newman, @thedotmack) hivatalosan is felkarolt. A token a közösségi növekedés katalizátoraként és a CMEM-et az azt leginkább igénylő fejlesztőkhöz és tudásmunkásokhoz eljuttató eszközként funkcionál.
-
-Hivatalos BASE CA: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

@@ -424,10 +424,5 @@ entre o open e o comercial.
 
 ---
 
-### E o CMEM?
-
-O CMEM é um token criado por terceiros, mas oficialmente adotado pelo criador do Claude-Mem (Alex Newman, @thedotmack). O token funciona como catalisador comunitário para o crescimento e como veículo para levar o CMEM aos programadores e trabalhadores do conhecimento que mais dele precisam.
-
-CA Oficial na BASE: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3
 
 ---

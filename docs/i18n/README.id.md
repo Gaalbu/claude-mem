@@ -423,9 +423,3 @@ open/commercial.
 **Built with Claude Agent SDK** | **Works with Claude Code** | **Made with TypeScript**
 
 ---
-
-### Bagaimana dengan CMEM?
-
-CMEM adalah token yang dibuat oleh pihak ketiga tetapi secara resmi diakui oleh pencipta Claude-Mem (Alex Newman, @thedotmack). Token ini berperan sebagai katalisator komunitas untuk pertumbuhan dan wahana untuk membawa CMEM kepada para developer dan pekerja pengetahuan yang paling membutuhkannya.
-
-Official BASE CA: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3

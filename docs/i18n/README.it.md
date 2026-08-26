@@ -423,9 +423,3 @@ tra open source e commerciale.
 **Creato con Claude Agent SDK** | **Funziona con Claude Code** | **Realizzato con TypeScript**
 
 ---
-
-### E il CMEM?
-
-CMEM è un token creato da terze parti ma ufficialmente adottato dal creatore di Claude-Mem (Alex Newman, @thedotmack). Il token funge da catalizzatore per la community, favorendo la crescita e fungendo da veicolo per portare CMEM agli sviluppatori e ai knowledge worker che ne hanno più bisogno.
-
-CA BASE Ufficiale: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3
