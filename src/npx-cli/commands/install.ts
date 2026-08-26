@@ -32,13 +32,6 @@ import {
   type InstallSummary,
 } from '../install/error-reporter.js';
 import { extractEresolveBlock, isEresolve, runNpmStrict } from '../install/npm-install-helper.js';
-import {
-  buildProviderLabels,
-  CMEM_PRO_BASE_URL,
-  CMEM_PRO_KEY_PATTERN,
-  CMEM_PRO_MODEL,
-  CMEM_PRO_SIGNUP_URL,
-} from '../cmem-pro-costs.js';
 
 function getSetting<K extends keyof SettingsDefaults>(key: K): SettingsDefaults[K] {
   return SettingsDefaultsManager.loadFromFile(USER_SETTINGS_PATH)[key];
@@ -821,7 +814,7 @@ type ProviderId = 'claude' | 'gemini' | 'openrouter';
  * persists CLAUDE_MEM_PROVIDER='openrouter'. The worker only understands
  * 'claude' | 'gemini' | 'openrouter', so 'cmem' must never reach settings.json.
  */
-type ProviderChoice = ProviderId | 'cmem';
+type ProviderChoice = ProviderId;
 type ClaudeAccessMode = 'subscription' | 'api-key';
 type ClaudeApiMode = 'direct' | 'gateway';
 // Phase 1d: Persisted DB literals (`server_beta_schema_migrations`, job_type
@@ -1163,64 +1156,20 @@ async function promptProvider(options: InstallOptions): Promise<ProviderId> {
   if (options.provider) {
     selectedProvider = options.provider;
   } else {
-    // Rates are looked up live so the prompt never quotes a stale price. The
-    // lookup is timeout-bounded and falls back silently, so an offline install
-    // still gets a working prompt — just with last-known figures.
-    const labels = await buildProviderLabels();
-
     const providerResult = await p.select<ProviderChoice>({
       message: 'Which memory provider do you want to use?',
       options: [
-        { value: 'cmem', label: labels.cmem, hint: labels.cmemHint },
-        { value: 'openrouter', label: labels.openrouter },
-        { value: 'gemini', label: labels.gemini },
-        { value: 'claude', label: labels.claude },
+        { value: 'gemini', label: 'Gemini API key (free tier available)' },
+        { value: 'openrouter', label: 'OpenRouter / compatible API key' },
+        { value: 'claude', label: 'Claude subscription or API key' },
       ],
-      initialValue: 'cmem',
+      initialValue: 'gemini',
     });
     if (p.isCancel(providerResult)) {
       p.cancel('Installation cancelled.');
       process.exit(0);
     }
     selectedProvider = providerResult;
-  }
-
-  // CMEM Pro: no new provider code. The worker's OpenRouter client is a generic
-  // OpenAI-compatible client whose endpoint and model both come from settings,
-  // so "use the CMEM observer model" is four settings writes and nothing else.
-  if (selectedProvider === 'cmem') {
-    p.note(
-      `Opening ${CMEM_PRO_SIGNUP_URL}\nSign in, subscribe, and copy the key you're shown.`,
-      'CMEM Pro',
-    );
-    openBrowser(CMEM_PRO_SIGNUP_URL);
-
-    const keyResult = await p.text({
-      message: 'Paste your CMEM Pro key (starts with cm_pro_):',
-      validate: (v?: string) =>
-        CMEM_PRO_KEY_PATTERN.test((v ?? '').trim())
-          ? undefined
-          : 'That does not look like a CMEM Pro key.',
-    });
-
-    if (p.isCancel(keyResult)) {
-      p.cancel('Installation cancelled.');
-      process.exit(0);
-    }
-
-    const wrote = mergeSettings({
-      CLAUDE_MEM_PROVIDER: 'openrouter',
-      CLAUDE_MEM_OPENROUTER_BASE_URL: CMEM_PRO_BASE_URL,
-      CLAUDE_MEM_OPENROUTER_MODEL: CMEM_PRO_MODEL,
-      CLAUDE_MEM_OPENROUTER_API_KEY: String(keyResult).trim(),
-    });
-    if (wrote) log.info('Saved CMEM Pro configuration to ~/.claude-mem/settings.json');
-
-    p.note(
-      'Next: finish cloud sync in the browser — press NEXT on the page.',
-      'CMEM Pro ready',
-    );
-    return 'openrouter';
   }
 
   if (selectedProvider === 'claude') {
