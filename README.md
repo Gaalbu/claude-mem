@@ -193,7 +193,7 @@ The installer handles dependencies, plugin setup, AI provider configuration, wor
 - **[Installation Guide](https://docs.claude-mem.ai/installation)** - Quick start & advanced installation
 - **[Usage Guide](https://docs.claude-mem.ai/usage/getting-started)** - How Claude-Mem works automatically
 - **[Search Tools](https://docs.claude-mem.ai/usage/search-tools)** - Query your project history with natural language
-- **[Cloud Sync](https://docs.claude-mem.ai/cloud-sync)** - Back up your memories to cmem.ai — no daemon, the worker syncs on write
+- **Cloud sync (optional):** supports a self-hosted compatible hub when all sync settings are explicitly configured; local SQLite and Chroma remain the default.
 
 ### Best Practices
 
@@ -422,9 +422,3 @@ open/commercial boundary.
 **Built with Claude Agent SDK** | **Works with Claude Code** | **Made with TypeScript**
 
 ---
-
-### What About CMEM?
-
-CMEM is a token created by a 3rd party but officially embraced by the creator of Claude-Mem (Alex Newman, @thedotmack). The token acts as a community catalyst for growth and a vehicle for bringing CMEM to the developers and knowledge workers that need it most.
-
-Official BASE CA: 0x76b1967eec0ccaeb001bbbb2b40dc4badba31ba3
