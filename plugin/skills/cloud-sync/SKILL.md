@@ -14,6 +14,11 @@ infer, or transmit credentials to a third-party hosted service. Keep tokens in
 `~/.claude-mem/settings.json` with owner-only permissions and never print them.
 
 To inspect status, call the local worker's `/api/sync/status` endpoint. If sync
-is not configured, report that it is intentionally off. To enable it, ask the
-user for the three values from their self-hosted hub, write them to the local
-settings file, restart the worker, and verify the local status endpoint.
+is not configured, report that it is intentionally off. When configured, make
+the authenticated, read-only `GET /v1/sync/status` request to the configured
+hub and inspect its reachability: `hub.reachable: true` is the only successful
+result; `hub.reachable: false` means the sync is unavailable and must never be
+reported as working. This
+probe never appends or advances sync state. To enable sync, ask the user for
+the three values from their self-hosted hub, write them to the local settings
+file, restart the worker, and verify the local status endpoint and hub probe.
