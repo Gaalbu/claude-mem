@@ -74,7 +74,7 @@ function removeMarketplaceDirectory(): boolean {
 }
 
 function removeCacheDirectory(): boolean {
-  const cacheDirectory = join(pluginsDirectory(), 'cache', 'thedotmack', 'claude-mem');
+  const cacheDirectory = join(pluginsDirectory(), 'cache', 'gaalbu', 'claude-mem');
   if (existsSync(cacheDirectory)) {
     rmSync(cacheDirectory, { recursive: true, force: true });
     return true;
@@ -84,16 +84,16 @@ function removeCacheDirectory(): boolean {
 
 function removeFromKnownMarketplaces(): void {
   const knownMarketplaces = readJsonSafe<Record<string, any>>(knownMarketplacesPath(), {});
-  if (knownMarketplaces['thedotmack']) {
-    delete knownMarketplaces['thedotmack'];
+  if (knownMarketplaces['gaalbu']) {
+    delete knownMarketplaces['gaalbu'];
     writeJsonFileAtomic(knownMarketplacesPath(), knownMarketplaces);
   }
 }
 
 function removeFromInstalledPlugins(): void {
   const installedPlugins = readJsonSafe<Record<string, any>>(installedPluginsPath(), {});
-  if (installedPlugins.plugins?.['claude-mem@thedotmack']) {
-    delete installedPlugins.plugins['claude-mem@thedotmack'];
+  if (installedPlugins.plugins?.['claude-mem@gaalbu']) {
+    delete installedPlugins.plugins['claude-mem@gaalbu'];
     writeJsonFileAtomic(installedPluginsPath(), installedPlugins);
   }
 }
@@ -133,8 +133,8 @@ export function removeFromClaudeSettings(): void {
   const settings = readJsonSafe<Record<string, any>>(claudeSettingsPath(), {});
   let dirty = false;
 
-  if (settings.enabledPlugins?.['claude-mem@thedotmack'] !== undefined) {
-    delete settings.enabledPlugins['claude-mem@thedotmack'];
+  if (settings.enabledPlugins?.['claude-mem@gaalbu'] !== undefined) {
+    delete settings.enabledPlugins['claude-mem@gaalbu'];
     dirty = true;
   }
 
@@ -223,7 +223,7 @@ function removeStrayClaudeMemPaths(): number {
     }
   }
 
-  const pluginDataDir = join(home, '.claude', 'plugins', 'data', 'claude-mem-thedotmack');
+  const pluginDataDir = join(home, '.claude', 'plugins', 'data', 'claude-mem-gaalbu');
   if (existsSync(pluginDataDir)) {
     try {
       rmSync(pluginDataDir, { recursive: true, force: true });
