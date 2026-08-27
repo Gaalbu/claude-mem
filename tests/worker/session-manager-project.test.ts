@@ -6,6 +6,14 @@ import type { ActiveSession } from '../../src/services/worker-types.js';
 import type { DatabaseManager } from '../../src/services/worker/DatabaseManager.js';
 import type { StorageResult, WorkerRef } from '../../src/services/worker/agents/types.js';
 
+// Capture the real modules before installing partial mocks. Bun's module mocks
+// are process-global and mock.restore() does not undo mock.module registrations.
+import * as realWorkerServiceModule from '../../src/services/worker-service.js';
+import * as realWorkerUtilsModule from '../../src/shared/worker-utils.js';
+
+const realWorkerServiceSnapshot = { ...realWorkerServiceModule };
+const realWorkerUtilsSnapshot = { ...realWorkerUtilsModule };
+
 mock.module('../../src/services/worker-service.js', () => ({
   updateCursorContextForProject: () => Promise.resolve(),
 }));
@@ -26,6 +34,8 @@ import * as realModeManagerModule from '../../src/services/domain/ModeManager.js
 const realModeManagerSnapshot = { ...realModeManagerModule };
 
 afterAll(() => {
+  mock.module('../../src/services/worker-service.js', () => realWorkerServiceSnapshot);
+  mock.module('../../src/shared/worker-utils.js', () => realWorkerUtilsSnapshot);
   mock.module('../../src/services/domain/ModeManager.js', () => realModeManagerSnapshot);
 });
 

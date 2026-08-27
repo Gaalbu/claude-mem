@@ -236,7 +236,7 @@ Over 100,000 developers already use it. It's open source. And the pieces are sma
 
 Every hacker gets 30 days of CMEM Pro free: install, then use code **FASTHACK30** at cmem.ai.
 
-Repo and skills: **github.com/thedotmack/claude-mem**
+Repo and skills: **github.com/gaalbu/claude-mem**
 
 ---
 

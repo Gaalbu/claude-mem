@@ -35,7 +35,7 @@ These issues affect the web UI, plugin installation experience, and developer-fa
   - Read the plugin installation/sync logic — search for `marketplace`, `sync`, `symlink` in `scripts/`
   - Read `scripts/sync-marketplace.cjs` to understand how the plugin is installed
   - The fix: add a self-repair check in the SessionStart hook. Before normal operation:
-    1. Check if the plugin files exist at the expected installed path (`~/.claude/plugins/marketplaces/thedotmack/`)
+    1. Check if the plugin files exist at the expected installed path (`~/.claude/plugins/marketplaces/gaalbu/`)
     2. If missing, re-run the marketplace sync automatically
     3. Log a warning: "Plugin installation repaired after Claude Code update"
   - This should be lightweight — just an `existsSync()` check, not a full sync on every startup

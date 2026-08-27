@@ -13,7 +13,7 @@ related:
 
 # Issues Triage Report — 2026-03-29
 
-**Repository:** thedotmack/claude-mem
+**Repository:** gaalbu/claude-mem
 **Triage Date:** 2026-03-29
 **Triaged By:** issues-triage-3-29-2026 (Maestro agent)
 

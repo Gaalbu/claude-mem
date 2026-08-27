@@ -1,7 +1,7 @@
 # Chroma on Windows — Process-Tree Ownership
 
 Status: ready to execute
-Target: ONE PR against `thedotmack/claude-mem:main`
+Target: ONE PR against `gaalbu/claude-mem:main`
 Related plan masters: #3610 [plan-22] Chroma Sidecar Contract, #3602 [plan-14] Child Process Ownership, #3603 [plan-15] Worker Port & Liveness
 
 ## Problem (verified, not assumed)

@@ -29,7 +29,7 @@
 | `performGracefulShutdown(config)` | `src/services/infrastructure/GracefulShutdown.ts:30-58` | sequential closes, NO global deadline |
 | `flushResponseThen(res, payload, action)` | `src/services/server/flushResponseThen.ts:3-16` | responds, runs action on 'finish', ALWAYS `process.exit(0)` |
 | `writeJsonFileAtomic()` | `src/npx-cli/utils/paths.ts:124-205` | the ONLY atomic-write helper in the repo |
-| `MARKETPLACE_ROOT` | `src/shared/paths.ts:43` | `~/.claude/plugins/marketplaces/thedotmack` |
+| `MARKETPLACE_ROOT` | `src/shared/paths.ts:43` | `~/.claude/plugins/marketplaces/gaalbu` |
 | `resolveDataDir()` / `DATA_DIR` | `src/shared/paths.ts:18-40` | env `CLAUDE_MEM_DATA_DIR` wins (line 19-20); module-level const — computed at import time |
 | Worker port default | `src/shared/SettingsDefaultsManager.ts:91` | `37700 + (uid % 100)` — NEVER hardcode 37777 |
 | `/api/health` response | `src/services/server/Server.ts:212-233` | `{status, version, workerPath, uptime, pid, initialized, mcpReady, ...}` — has everything verification needs |
@@ -61,8 +61,8 @@
    - Delete `detectInstalledVersion()` (lines ~79-114) and its call site — it exists only to feed the mirror.
    - Delete the HTTP restart trigger block (lines ~196-216: the `http.request` POST to `/api/admin/restart` and its success/error prints). The sync script's job ends at "files synced + `bun install` in the marketplace copy".
 2. In root `package.json` line ~67, simplify:
-   - From: `"build-and-sync": "npm run build && npm run sync-marketplace && sleep 1 && (cd ~/.claude/plugins/marketplaces/thedotmack && npm run worker:restart)"`
-   - To: `"build-and-sync": "npm run build && npm run sync-marketplace && (cd ~/.claude/plugins/marketplaces/thedotmack && npm run worker:restart)"`
+   - From: `"build-and-sync": "npm run build && npm run sync-marketplace && sleep 1 && (cd ~/.claude/plugins/marketplaces/gaalbu && npm run worker:restart)"`
+   - To: `"build-and-sync": "npm run build && npm run sync-marketplace && (cd ~/.claude/plugins/marketplaces/gaalbu && npm run worker:restart)"`
    - (drop the `sleep 1` — it existed to let the now-deleted HTTP kill land before the CLI restart)
 3. Do NOT touch the existing one-time legacy-cache cleanup elsewhere in sync-marketplace.cjs (if present) — only the three blocks named above.
 
@@ -74,7 +74,7 @@
 - `grep -n "sleep 1" package.json` → no match in build-and-sync.
 - `npm run build-and-sync` → completes; worker restarts (via CLI path only); `curl -s http://127.0.0.1:$PORT/api/health` shows the just-built version. (Resolve `$PORT` as `37700 + uid%100` or from `~/.claude-mem/settings.json`.)
 - `npm test` → green.
-- Stale-cache regression check: `ls ~/.claude/plugins/cache/thedotmack/claude-mem/*/package.json | xargs grep -h '"version"'` — record current values; after the NEXT release, re-check that no cache dir's content changed (the mirror used to mutate them).
+- Stale-cache regression check: `ls ~/.claude/plugins/cache/gaalbu/claude-mem/*/package.json | xargs grep -h '"version"'` — record current values; after the NEXT release, re-check that no cache dir's content changed (the mirror used to mutate them).
 
 ### Anti-pattern guards
 - Do not "fix" the mirror by targeting `workerPath` instead — the feature is being removed, not repaired.
@@ -248,6 +248,6 @@ All in `src/services/worker-service.ts`:
    - `grep -rn "resolveBunRuntime" src/shared/worker-utils.ts`
    - `grep -rn "homedir(), '.claude-mem'" tests/`
 3. **Triple-restart soak:** run `npm run build-and-sync` three times consecutively; every run must end `Worker restart verified`; `/api/health` pid changes each time, version stays the built version; `grep -c "refusing to start duplicate\|Failed to start server" ~/.claude-mem/logs/claude-mem-$(date +%F).log` shows no new occurrences during the soak.
-4. **Stale-launcher convergence test (the original bug):** manually spawn a worker from an OLD cache dir (`node ~/.claude/plugins/cache/thedotmack/claude-mem/<old>/scripts/bun-runner.js .../worker-service.cjs start`), then trigger any hook (or `ensureWorkerRunning` via a session). Expect in the log: exactly ONE `Worker version mismatch — recycling stale worker`, then the self-replacing restart, then a healthy marketplace-version worker — NO ping-pong (no second recycle within 5 minutes).
+4. **Stale-launcher convergence test (the original bug):** manually spawn a worker from an OLD cache dir (`node ~/.claude/plugins/cache/gaalbu/claude-mem/<old>/scripts/bun-runner.js .../worker-service.cjs start`), then trigger any hook (or `ensureWorkerRunning` via a session). Expect in the log: exactly ONE `Worker version mismatch — recycling stale worker`, then the self-replacing restart, then a healthy marketplace-version worker — NO ping-pong (no second recycle within 5 minutes).
 5. **Observation check:** confirm claude-mem itself recorded observations during the soak (the worker was restarting underneath the recorder — the pipeline must survive its own surgery): query the 10 most recent rows in `~/.claude-mem/claude-mem.db` `observations` and confirm fresh timestamps.
 6. **Docs:** update `docs/public/troubleshooting.mdx` if it documents the old restart semantics; CHANGELOG is auto-generated — do not edit.

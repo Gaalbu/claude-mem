@@ -38,7 +38,7 @@ self-contained; run in a fresh context. Phase 3 depends on PR #3538 being merged
 
 **Binding constraints:** root-cause fixes only; no new retry loops, no fallbacks, no env-var escape hatches
 except the one test seam named below; keep diffs the size of the defect. Do not invent URLs — only
-`https://cmem.ai/dashboard`, `support@cmem.ai`, and `https://github.com/thedotmack/claude-mem/issues`
+`https://cmem.ai/dashboard`, `support@cmem.ai`, and `https://github.com/gaalbu/claude-mem/issues`
 are approved. Do not edit `CHANGELOG.md`.
 
 ---
@@ -185,7 +185,7 @@ Rules (in this order):
 | `subscription_inactive` (other) | `Your CMEM Pro subscription isn't active.` | `Check billing in the dashboard, or email support@cmem.ai.` | `https://cmem.ai/dashboard` |
 | `rate_limited` | `Too many observer requests in the last minute.` | `Retrying automatically in 60s — nothing to do.` | — |
 | `upstream_unavailable` | `The observer model is temporarily unavailable.` | `claude-mem retries automatically. If this lasts more than an hour, email support@cmem.ai with the request id.` | — |
-| `bad_request` | `The observer sent a request the gateway couldn't parse.` | `This is a claude-mem bug — please open an issue with the request id.` | `https://github.com/thedotmack/claude-mem/issues` |
+| `bad_request` | `The observer sent a request the gateway couldn't parse.` | `This is a claude-mem bug — please open an issue with the request id.` | `https://github.com/gaalbu/claude-mem/issues` |
 
 `<limit>` = `proUser.openrouterKeyLimitUsd` formatted with no trailing zeros (`$30`, `$2.33`); if null, omit the dollar clause.
 

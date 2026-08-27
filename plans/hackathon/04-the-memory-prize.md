@@ -66,7 +66,7 @@ A polished demo of a real need beats a clever demo of an imaginary one. If you'd
 ## Get set up
 
 - Every hacker gets **30 days of CMEM Pro free**: run `npx claude-mem install`, then use code **FASTHACK30** at cmem.ai.
-- Repo and skills: **github.com/thedotmack/claude-mem**
+- Repo and skills: **github.com/gaalbu/claude-mem**
 - Fastest way to "get it": install, do one session of work, start a second session, look at the timeline at the top. Then open the viewer and watch notes land live.
 
 ---

@@ -61,7 +61,7 @@ All findings below were verified against source at v13.12.3 (commit `68b077f7f` 
 - `database is locked` during adoption: adoption's own connection (`WorktreeAdoption.ts:187`) races the boot-time migration writer because it is kicked at `worker-service.ts:480`, **before** `dbManager.initialize()` at `:507`; WAL single-writer + 5 s busy_timeout (`connection.ts:4,:44`).
 
 **CLAUDE.md shipping (#3381):**
-- The leak vector is the **marketplace git clone**: `known_marketplaces.json` shows `source: github, repo: thedotmack/claude-mem` cloned to `~/.claude/plugins/marketplaces/thedotmack/` — every tracked file ships, including root `CLAUDE.md` (byte-identical, verified by shasum), `docs/`, `plans/`. The plugin **cache** (`~/.claude/plugins/cache/…/13.12.3/`) is clean because `marketplace.json:9-16` sets plugin `source: "./plugin"`.
+- The leak vector is the **marketplace git clone**: `known_marketplaces.json` shows `source: github, repo: gaalbu/claude-mem` cloned to `~/.claude/plugins/marketplaces/gaalbu/` — every tracked file ships, including root `CLAUDE.md` (byte-identical, verified by shasum), `docs/`, `plans/`. The plugin **cache** (`~/.claude/plugins/cache/…/13.12.3/`) is clean because `marketplace.json:9-16` sets plugin `source: "./plugin"`.
 - The #2537 fix is `.npmignore:9-14` (`/CLAUDE.md` etc.) — it governs only the npm tarball, which is why GitHub-source installs bypass it (#3359). No evidence of any "#2688" fix exists in-repo.
 - The maintainer rsync (`scripts/sync-marketplace.cjs:77-80`) filters by `.gitignore` only and also copies CLAUDE.md.
 - Maintainer-only sections in root `CLAUDE.md`: `## Local Status Notes` (lines 35-37) and `## Daily Maintenance` (lines 39-47, the autonomous upgrade+commit directive). Lines 1-33 (Build, File Locations, Requirements, Documentation, Important) are legitimate contributor content.
@@ -205,7 +205,7 @@ Fix: `repairOrphanedSessionParents()` creates stub parents (mirroring `ensureSes
 
 - [ ] `grep -n "Daily Maintenance\|Local Status Notes" CLAUDE.md` → no hits; the sections exist verbatim in `CLAUDE.local.md`.
 - [ ] `git check-ignore CLAUDE.local.md` → ignored; `git status` shows CLAUDE.local.md untracked-and-ignored.
-- [ ] After `npm run build-and-sync`: `grep -L "Daily Maintenance" ~/.claude/plugins/marketplaces/thedotmack/CLAUDE.md` confirms the marketplace copy no longer contains the directive (file present but slim).
+- [ ] After `npm run build-and-sync`: `grep -L "Daily Maintenance" ~/.claude/plugins/marketplaces/gaalbu/CLAUDE.md` confirms the marketplace copy no longer contains the directive (file present but slim).
 - [ ] Comment on #3381 and #3359 explaining: tarball was already guarded (#2537 `.npmignore`), the git-clone channel is now guarded by relocation; close #3381.
 
 ### Anti-pattern guards

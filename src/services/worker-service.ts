@@ -1356,7 +1356,7 @@ async function main() {
     case 'transcript': {
       // npx-cli falls back to `worker-service.cjs transcript <sub>` when the
       // standalone `transcript-watcher.cjs` is not present in the bundle
-      // (see thedotmack/claude-mem 2450). Dispatch to the shared
+      // (see gaalbu/claude-mem 2450). Dispatch to the shared
       // implementation so `init`, `watch`, and `validate` all work
       // regardless of which entry point the user invokes.
       const { runTranscriptCommand } = await import('./transcripts/cli.js');

@@ -327,7 +327,7 @@ describe('classifyOpenRouterError', () => {
           code: 'bad_request',
           message: "The observer sent a request the gateway couldn't parse.",
           action: 'This is a claude-mem bug — please open an issue with the request id.',
-          url: 'https://github.com/thedotmack/claude-mem/issues',
+          url: 'https://github.com/gaalbu/claude-mem/issues',
           request_id: 'req-400',
         },
       }),
@@ -337,7 +337,7 @@ describe('classifyOpenRouterError', () => {
     expect(err.code).toBe('bad_request');
     expect(err.message).toBe("The observer sent a request the gateway couldn't parse.");
     expect(err.action).toBe('This is a claude-mem bug — please open an issue with the request id.');
-    expect(err.url).toBe('https://github.com/thedotmack/claude-mem/issues');
+    expect(err.url).toBe('https://github.com/gaalbu/claude-mem/issues');
     expect(err.requestId).toBe('req-400');
   });
 

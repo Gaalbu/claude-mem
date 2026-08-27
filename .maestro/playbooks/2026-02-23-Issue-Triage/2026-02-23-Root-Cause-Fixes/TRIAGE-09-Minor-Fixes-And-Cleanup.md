@@ -17,7 +17,7 @@ These are lower-priority items that don't affect core functionality. The "securi
   - At the top of every hook entry point, check if the plugin is disabled
   - Read `~/.claude/settings.json` and check for a disabled plugins list
   - If disabled, exit immediately with code 0 — this check must be fast (sync read + JSON parse)
-  - **Done**: Created `src/shared/plugin-state.ts` with `isPluginDisabledInClaudeSettings()` — checks `enabledPlugins["claude-mem@thedotmack"] === false` in Claude Code's settings.json. Added early exit to: `worker-service.ts:main()` (gates start/hook/restart/daemon commands), `bun-runner.js` (before spawning Bun), `smart-install.js` (before dependency checks). 7 new tests. 1070/1070 pass. Commit `d6bc4495`.
+  - **Done**: Created `src/shared/plugin-state.ts` with `isPluginDisabledInClaudeSettings()` — checks `enabledPlugins["claude-mem@gaalbu"] === false` in Claude Code's settings.json. Added early exit to: `worker-service.ts:main()` (gates start/hook/restart/daemon commands), `bun-runner.js` (before spawning Bun), `smart-install.js` (before dependency checks). 7 new tests. 1070/1070 pass. Commit `d6bc4495`.
 
 - [x] Fix UserPromptSubmit injecting context on every turn (#1079):
   - The hook injects context on every `UserPromptSubmit`, not just the first prompt

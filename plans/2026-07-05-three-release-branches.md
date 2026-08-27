@@ -1,6 +1,6 @@
 # Plan: Three Long-Lived Release Branches (stable / core-dev / community-edge)
 
-Owner: solo maintainer (thedotmack). Repo: github.com/thedotmack/claude-mem.
+Owner: solo maintainer (gaalbu). Repo: github.com/gaalbu/claude-mem.
 Goal: turn the three plan PRs into three permanent release lines, document the
 strategy in one place, and give clone/run instructions for the non-stable lines.
 
@@ -71,7 +71,7 @@ Create `docs/public/branches.mdx`. Contents (copy this structure, don't invent):
   integrations (least stable).
 - Section "Run a non-stable line locally":
   ```bash
-  git clone https://github.com/thedotmack/claude-mem.git
+  git clone https://github.com/gaalbu/claude-mem.git
   cd claude-mem
   git checkout core-dev          # or: community-edge
   npm install

@@ -6,7 +6,7 @@
     "name": "CMEM, Inc."
   },
   "homepage": "https://cmem.ai",
-  "repository": "https://github.com/thedotmack/claude-mem",
+  "repository": "https://github.com/gaalbu/claude-mem",
   "license": "PolyForm-Noncommercial-1.0.0",
   "keywords": [
     "memory",

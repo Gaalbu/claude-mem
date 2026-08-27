@@ -4,8 +4,8 @@
 
 ## Repos and locations
 
-- **claude-mem** (plugin + sync hub): worktree `/Users/alexnewman/.superset/worktrees/df8069a7-eb08-4626-9d3d-918d1e12eb9f/freckle-nail`, branch `feat/phase5-two-lane-sync`, remote `thedotmack/claude-mem`. Hub worker in `workers/sync-hub/`.
-- **claude-mem-pro** (cmem.ai): `~/Scripts/claude-mem-pro` (currently checked out on `codex/turbopuffer-only-launch`; `main` auto-deploys to Vercel prod). Remote `thedotmack/claude-mem-pro`.
+- **claude-mem** (plugin + sync hub): worktree `/Users/alexnewman/.superset/worktrees/df8069a7-eb08-4626-9d3d-918d1e12eb9f/freckle-nail`, branch `feat/phase5-two-lane-sync`, remote `gaalbu/claude-mem`. Hub worker in `workers/sync-hub/`.
+- **claude-mem-pro** (cmem.ai): `~/Scripts/claude-mem-pro` (currently checked out on `codex/turbopuffer-only-launch`; `main` auto-deploys to Vercel prod). Remote `gaalbu/claude-mem-pro`.
 - **Cutover plan**: `PLAN-postgres-to-turbopuffer-cutover.md` (in claude-mem-pro worktree `.claude/worktrees/tpuf-content-plan`, branch `docs/tpuf-content-migration-plan`).
 
 ## Human-only items (Alex, anytime — not blocking Phase 1)
@@ -31,8 +31,8 @@
 **Goal:** hub live in production, verified end-to-end with real tokens.
 
 Tasks:
-1. In claude-mem-pro: merge PR #51 into `main` (`gh pr merge 51 -R thedotmack/claude-mem-pro`). Vercel auto-deploys. Verify `GET https://cmem.ai/api/pro/sync/verify` responds (401/contract response, not 404) after deploy.
-2. In claude-mem: merge PR #3333 (`gh pr merge 3333 -R thedotmack/claude-mem`).
+1. In claude-mem-pro: merge PR #51 into `main` (`gh pr merge 51 -R gaalbu/claude-mem-pro`). Vercel auto-deploys. Verify `GET https://cmem.ai/api/pro/sync/verify` responds (401/contract response, not 404) after deploy.
+2. In claude-mem: merge PR #3333 (`gh pr merge 3333 -R gaalbu/claude-mem`).
 3. Configure the hub worker (`workers/sync-hub/`): set `TOKEN_VERIFY_URL=https://cmem.ai/api/pro/sync/verify` (wrangler secret or var per `wrangler.jsonc` — note the worktree has an uncommitted `wrangler.jsonc` modification; reconcile it first). Confirm watchdog cron trigger + secrets per `workers/sync-hub/DEPLOY.md`. Ensure `DEV_ALLOW_ANY_TOKEN` is empty in prod. Redeploy.
 4. Run the two-device canary (`workers/sync-hub/canary/`) against prod with a real account's `setup_token` from `/api/pro/connect-info`.
 5. Drill the kill switch once (trip → verify `X-Sync-Mode: poll` fleet-wide + WS refused with 503 → untrip).

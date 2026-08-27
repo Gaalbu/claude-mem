@@ -9,7 +9,7 @@
 **Claude-Mem = a memory layer for AI coding agents.**
 A second agent watches your main agent work, writes structured notes about what matters, and hands them back next session. Your agent starts warm instead of cold.
 
-Open source. 100,000+ developers. `github.com/thedotmack/claude-mem`
+Open source. 100,000+ developers. `github.com/gaalbu/claude-mem`
 
 ---
 

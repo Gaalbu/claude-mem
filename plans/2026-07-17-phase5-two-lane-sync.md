@@ -167,7 +167,7 @@ Three subagents completed 2026-07-17 (live Cloudflare docs via raw `<url>index.m
 ## Phase 6: Final verification + horizon
 
 1. Full-matrix e2e: fresh device bootstrap (`since=0`), week-offline catch-up, concurrent two-device writes, all four mutation types, epoch reset, kill-switch degradation — all on `wrangler dev` + two real worker daemons.
-2. Anti-pattern sweep: the Phase 0.4 greps across `workers/`; `bun test` full suite; `npm run build-and-sync`; confirm the marketplace rsync excludes `workers/` (inspect `~/.claude/plugins/marketplaces/thedotmack/` after sync).
+2. Anti-pattern sweep: the Phase 0.4 greps across `workers/`; `bun test` full suite; `npm run build-and-sync`; confirm the marketplace rsync excludes `workers/` (inspect `~/.claude/plugins/marketplaces/gaalbu/` after sync).
 3. Documentation: update `docs/public/` cloud-sync pages (Mintlify auto-deploys from main).
 4. Horizon (explicitly out of scope, recorded so nobody re-litigates): dashboard as a `/changes` client; E2E encryption (bodies become opaque blobs — the hub never parses `body` except mutation envelopes); team corpora (corpus-keyed DO, per-member `last_ack_seq`); Electric read-path adoption ONLY if Postgres ever lands server-side.
 

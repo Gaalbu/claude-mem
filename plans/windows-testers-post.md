@@ -32,7 +32,7 @@ Not "should work" — these ran on a real Windows machine and passed:
 Open **PowerShell** and paste these **one at a time**:
 
 ```powershell
-git clone https://github.com/thedotmack/claude-mem.git
+git clone https://github.com/gaalbu/claude-mem.git
 cd claude-mem
 git checkout windows-megafix
 npm install

@@ -143,4 +143,4 @@ And the seven prize directions map straight onto these: warm boot · build on th
 5. `/mode-creator` → point the observer at photos, transcripts, conversations, anything.
 6. Build on timeline / search / skills / real-time notes / summaries / modes.
 
-Hackers get 30 days of CMEM Pro free: install, then code **FASTHACK30** at cmem.ai. Repo: **github.com/thedotmack/claude-mem**.
+Hackers get 30 days of CMEM Pro free: install, then code **FASTHACK30** at cmem.ai. Repo: **github.com/gaalbu/claude-mem**.
